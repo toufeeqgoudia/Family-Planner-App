@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import { supabase } from "../Config/supabase";
+import { supabase } from "../Config/supabaseClient";
 import PropTypes from "prop-types"
 
 const AuthContext = createContext({ session: null, user: null, signOut: () => {} })

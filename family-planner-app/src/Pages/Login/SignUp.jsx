@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../Config/supabaseClient";
-import { TextField, Button, Alert } from "@mui/material";
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
+import Alert from "@mui/material/Alert"
 import PropTypes from "prop-types";
 
 const SignUp = (props) => {
@@ -58,7 +60,11 @@ const SignUp = (props) => {
   return (
     <div className="max-w-screen flex flex-col justify-center items-center">
       <div className="w-80 h-60">
-        <img src="/android-chrome-384x384.png" alt="Family Planner App" className="w-full" />
+        <img
+          src="/android-chrome-384x384.png"
+          alt="Family Planner App"
+          className="w-full"
+        />
       </div>
       <div className="w-80 flex flex-col justify-center items-center">
         <h2 className="text-2xl font-bold mt-0 text-center">Sign Up</h2>
@@ -73,6 +79,7 @@ const SignUp = (props) => {
             label="First Name"
             type="text"
             name="firstname"
+            autoComplete="on"
             onChange={handleChange}
             sx={{ paddingBottom: "7px" }}
           />
@@ -82,6 +89,7 @@ const SignUp = (props) => {
             label="Last Name"
             type="text"
             name="lastname"
+            autoComplete="on"
             onChange={handleChange}
             sx={{ paddingBottom: "7px" }}
           />
@@ -91,6 +99,7 @@ const SignUp = (props) => {
             label="Email"
             type="email"
             name="email"
+            autoComplete="on"
             onChange={handleChange}
             sx={{ paddingBottom: "7px" }}
           />
@@ -100,6 +109,7 @@ const SignUp = (props) => {
             label="Password"
             type="password"
             name="password"
+            autoComplete="off"
             onChange={handleChange}
             sx={{ paddingBottom: "7px" }}
           />

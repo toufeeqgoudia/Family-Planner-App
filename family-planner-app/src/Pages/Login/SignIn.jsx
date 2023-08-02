@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../Config/supabaseClient";
-import { TextField, Button, Alert } from "@mui/material";
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
+import Alert from "@mui/material/Alert"
 import PropTypes from "prop-types";
 
 const SignIn = (props) => {
@@ -28,7 +30,7 @@ const SignIn = (props) => {
     try {
       setLoading(true);
 
-      const { data, error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: formData.email,
         password: formData.password,
       });
@@ -40,6 +42,9 @@ const SignIn = (props) => {
       if (data.session !== null && data.user !== null) {
         navigate("/");
       }
+
+      console.log('data.session: ', data.session)
+      console.log('data.user: ', data.user)
     } catch {
       setFetchError("Failed to sign up.");
     } finally {
@@ -50,7 +55,11 @@ const SignIn = (props) => {
   return (
     <div className="max-w-screen flex flex-col justify-center items-center">
       <div className="w-80 h-60">
-        <img src="/android-chrome-384x384.png" alt="Family Planner App" className="w-full" />
+        <img
+          src="/android-chrome-384x384.png"
+          alt="Family Planner App"
+          className="w-full"
+        />
       </div>
       <div className="w-80 flex flex-col justify-center items-center">
         <h2 className="text-2xl font-bold mt-0 text-center">Sign In</h2>
@@ -65,6 +74,7 @@ const SignIn = (props) => {
             label="Email"
             type="email"
             name="email"
+            autoComplete="on"
             onChange={handleChange}
             sx={{ paddingBottom: "7px" }}
           />
@@ -74,6 +84,7 @@ const SignIn = (props) => {
             label="Password"
             type="password"
             name="password"
+            autoComplete="off"
             onChange={handleChange}
             sx={{ paddingBottom: "7px" }}
           />
