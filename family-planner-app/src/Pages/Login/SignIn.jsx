@@ -42,9 +42,6 @@ const SignIn = (props) => {
       if (data.session !== null && data.user !== null) {
         navigate("/");
       }
-
-      console.log('data.session: ', data.session)
-      console.log('data.user: ', data.user)
     } catch {
       setFetchError("Failed to sign up.");
     } finally {

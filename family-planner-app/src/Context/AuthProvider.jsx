@@ -2,7 +2,7 @@ import { useState, useEffect, createContext } from "react";
 import { supabase } from "../Config/supabaseClient";
 import PropTypes from "prop-types"
 
-const AuthContext = createContext({ session: null, user: null, signOut: () => {} })
+const AuthContext = createContext({ session: null, user: null,})
 
 export default AuthContext
 
@@ -33,14 +33,8 @@ export const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const value = {
-        session,
-        user,
-        signOut: () => supabase.auth.signOut()
-    }
-
     return (
-        <AuthContext.Provider value={value}>
+        <AuthContext.Provider value={{ session, user }}>
             {!loading && children}
         </AuthContext.Provider>
     )

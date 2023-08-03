@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <>
       <TopNav />
-      <div className="max-w-screen flex flex-col justify-center items-center">
+      <div className="max-w-screen flex flex-col justify-center items-center mt-20 mb-10">
         <Carousel />
         <div className="w-full flex flex-wrap justify-evenly p-3">
           <div className="w-2/5 h-20 bg-gray-300 rounded-md p-2 m-2 relative">
