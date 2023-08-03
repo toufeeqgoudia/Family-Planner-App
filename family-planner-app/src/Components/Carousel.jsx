@@ -10,7 +10,7 @@ import family5 from "../Images/family4.jpg";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const slides = [family1, family2, family3, family4, family5];
+  const slides = [family2, family3, family4, family5, family1,];
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
