@@ -4,11 +4,12 @@ import { useAuth } from "../../Hooks/useAuth";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import TodoList from "./TodoList";
+import noTodoImg from "../../Images/noTodos.jpg";
 
 const Todo = () => {
   const [name, setName] = useState("");
   const [todos, setTodos] = useState([]);
-  const { user } = useAuth()
+  const { user } = useAuth();
 
   useEffect(() => {
     getTodos();
@@ -20,7 +21,7 @@ const Todo = () => {
 
       if (error) throw error;
       if (data !== null) {
-        setTodos(data)
+        setTodos(data);
       }
     } catch (error) {
       console.log(error.message);
@@ -28,20 +29,23 @@ const Todo = () => {
   };
 
   const addTodo = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     try {
-      const { error } = await supabase.from("todoList").insert({
-        task: name,
-        user_id: user.id,
-      }).single()
+      const { error } = await supabase
+        .from("todoList")
+        .insert({
+          task: name,
+          user_id: user.id,
+        })
+        .single();
 
       if (error) throw error;
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
 
   // add image for when there are no todos
 
@@ -64,11 +68,17 @@ const Todo = () => {
         </form>
       </div>
 
-      <div className="mt-10 w-full flex flex-col justify-center items-center">
-        {todos.map((todo) => (
-          <TodoList key={todo.id} todo={todo} />
-        ))}
-      </div>
+      {todos.length === 0 ? (
+        <div className="w-4/5 max-w-2xl">
+          <img src={noTodoImg} alt="No Todos" />
+        </div>
+      ) : (
+        <div className="mt-10 w-full flex flex-col justify-center items-center">
+          {todos.map((todo) => (
+            <TodoList key={todo.id} todo={todo} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

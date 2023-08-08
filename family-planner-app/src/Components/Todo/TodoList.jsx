@@ -8,15 +8,14 @@ import PropTypes from "prop-types";
 
 const TodoList = ({ todo }) => {
   const [editing, setEditing] = useState(false);
-
-  // update todo not working
+  const [name, setName] = useState(todo.task)
 
   const updateTodo = async () => {
     try {
       const { error } = await supabase
         .from("todoList")
         .update({
-          task: todo.task,
+          task: name,
         })
         .eq("id", todo.id);
 
@@ -60,6 +59,7 @@ const TodoList = ({ todo }) => {
           <input
             className="w-4/5 text-base p-2 ml-1 outline-none"
             defaultValue={todo.task}
+            onChange={(e) => setName(e.target.value)}
           />
           <div>
           <button className="text-base p-3" onClick={() => setEditing(false)}>
