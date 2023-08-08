@@ -51,7 +51,7 @@ const Todo = () => {
 
   return (
     <div className="mt-20 mb-10 flex flex-col justify-center items-center">
-      <h2 className="text-xl font-bold text-center">Todo</h2>
+      <h2 className="text-xl font-bold text-center">To-dos</h2>
 
       <div className="mt-10 w-full flex justify-center">
         <form className="flex w-4/5 max-w-2xl" onSubmit={addTodo}>

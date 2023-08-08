@@ -6,6 +6,12 @@ export default {
       width: {
         'nc': '2000px',
       },
+      maxWidth: {
+        'do': '320px'
+      },
+      minWidth: {
+        'do': '320px'
+      },
       boxShadow: {
         'tn' : '0 2px 5px #696969',
         'bn' : '0 0 10px #696969',
