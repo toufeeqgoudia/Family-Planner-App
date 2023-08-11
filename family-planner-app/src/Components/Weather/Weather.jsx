@@ -4,10 +4,8 @@ import sunny from "../../Images/weather/sunny.jpg"
 import cloudy from "../../Images/weather/cloudy.jpg"
 import rainy from "../../Images/weather/rainy.jpg"
 
-const api = {
-  base: "https://api.openweathermap.org/data/2.5/",
-  key: "db9139934ac479d0887db62e9befc67d",
-};
+const base = import.meta.env.VITE_WEATHER_URL
+const key = import.meta.env.VITE_WEATHER_KEY
 
 const Weather = () => {
   const [query, setQuery] = useState("");
@@ -15,7 +13,7 @@ const Weather = () => {
 
   const handleSearch = (event) => {
     if (event.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      fetch(`${base}weather?q=${query}&units=metric&APPID=${key}`)
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
