@@ -3,10 +3,10 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import family1 from "../Images/FamilyPlannerLight.png";
-import family2 from "../Images/family1.jpg";
-import family3 from "../Images/family2.jpg";
-import family4 from "../Images/family3.jpg";
-import family5 from "../Images/family4.jpg";
+import family2 from "../Images/family/family1.jpg";
+import family3 from "../Images/family/family2.jpg";
+import family4 from "../Images/family/family3.jpg";
+import family5 from "../Images/family/family4.jpg";
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

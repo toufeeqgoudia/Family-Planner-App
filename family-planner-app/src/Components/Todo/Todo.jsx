@@ -4,7 +4,7 @@ import { useAuth } from "../../Hooks/useAuth";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import TodoList from "./TodoList";
-import noTodoImg from "../../Images/noTodos.jpg";
+import noTodoImg from "../../Images/todo/noTodos.jpg";
 
 const Todo = () => {
   const [name, setName] = useState("");
@@ -13,11 +13,14 @@ const Todo = () => {
 
   useEffect(() => {
     getTodos();
-  }, []);
+  });
 
   const getTodos = async () => {
     try {
-      const { data, error } = await supabase.from("todoList").select("*");
+      const { data, error } = await supabase
+        .from("todoList")
+        .select("*")
+        .eq("user_id", user.id);
 
       if (error) throw error;
       if (data !== null) {
@@ -46,8 +49,6 @@ const Todo = () => {
       console.log(error.message);
     }
   };
-
-  // add image for when there are no todos
 
   return (
     <div className="mt-20 mb-10 flex flex-col justify-center items-center">

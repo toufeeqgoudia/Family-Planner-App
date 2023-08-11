@@ -43,7 +43,7 @@ const TodoList = ({ todo }) => {
   return (
     <>
       {editing === false ? (
-        <div className="mt-2 flex flex-row justify-between items-center w-4/5 max-w-2xl border-2 border-black rounded-lg">
+        <div className="mt-2 flex flex-row justify-between items-center w-4/5 max-w-2xl border-2 bg-slate-300 rounded-lg">
           <p className="text-base p-3">{todo.task}</p>
           <div>
             <button className="text-base p-3">
@@ -57,10 +57,10 @@ const TodoList = ({ todo }) => {
       ) : (
         <form
           onSubmit={() => updateTodo()}
-          className="mt-2 flex flex-row justify-between items-center w-4/5 max-w-2xl border-2 border-black rounded-lg"
+          className="mt-2 flex flex-row justify-between items-center w-4/5 max-w-2xl border-2 bg-slate-300 rounded-lg"
         >
           <input
-            className="w-4/5 text-base p-2 ml-1 outline-none"
+            className="w-4/5 text-base p-2 ml-1 outline-none bg-slate-300"
             defaultValue={todo.task}
             onChange={(e) => setName(e.target.value)}
           />
