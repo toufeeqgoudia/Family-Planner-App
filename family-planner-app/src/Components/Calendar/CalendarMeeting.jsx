@@ -140,6 +140,7 @@ const CalendarMeeting = ({ meeting }) => {
               type="text"
               margin="normal"
               required
+              defaultValue={meeting.description}
               onChange={(e) => setEditDescription(e.target.value)}
             />
             <TextField
