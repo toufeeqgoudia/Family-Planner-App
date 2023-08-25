@@ -16,6 +16,12 @@ export default {
         'tn' : '0 2px 5px #696969',
         'bn' : '0 0 10px #696969',
       },
+      margin: {
+        '15' : '50px'
+      },
+      spacing: {
+        '18' : '70px' 
+      },
     },
     screens: {
       'sm': '300px',
